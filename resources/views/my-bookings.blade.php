@@ -163,6 +163,7 @@
         <div class="space-y-5">
 
             @forelse($bookings as $booking)
+                @continue(!$booking->court)
 
                 @php
 
@@ -186,7 +187,7 @@
                     <div class="flex flex-col md:flex-row gap-5 p-5">
 
                         <!-- FOTO LAPANGAN -->
-                        @if($booking->court->image)
+                        @if($booking->court?->image)
 
                             <img src="{{ asset('storage/' . $booking->court->image) }}"
                                 alt="{{ $booking->court->name }}"

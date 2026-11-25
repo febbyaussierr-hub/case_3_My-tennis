@@ -35,25 +35,26 @@
             </flux:select>
 
             <!-- PRICE FILTER -->
-            <flux:select wire:model.live="price" label="Price Range">
+         <!-- PRICE FILTER -->
+<flux:select wire:model.live="price" label="Price Range">
 
-                <flux:select.option value="">
-                    All Prices
-                </flux:select.option>
+    <flux:select.option value="">
+        All Prices
+    </flux:select.option>
 
-                <flux:select.option value="low">
-                    Up to Rp100.000
-                </flux:select.option>
+    <flux:select.option value="low">
+        Up to Rp100.000
+    </flux:select.option>
 
-                <flux:select.option value="medium">
-                    Rp100.001 - Rp150.000
-                </flux:select.option>
+    <flux:select.option value="medium">
+        Rp100.001 - Rp149.999
+    </flux:select.option>
 
-                <flux:select.option value="high">
-                    Above Rp150.000
-                </flux:select.option>
+    <flux:select.option value="high">
+        Rp150.000 and Above
+    </flux:select.option>
 
-            </flux:select>
+</flux:select>
 
             <!-- SORT FILTER -->
             <flux:select wire:model.live="sort" label="Sort By">

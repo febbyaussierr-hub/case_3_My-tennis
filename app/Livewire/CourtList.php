@@ -27,14 +27,14 @@ class CourtList extends Component
     public function render()
     {
         // CACHE KEY BERDASARKAN FILTER
-        $cacheKey = 'courts_' . md5(json_encode([
+        $cacheKey = 'courts_v2_' . md5(json_encode([
             'search' => trim($this->search),
             'city' => $this->city,
             'price' => $this->price,
             'sort' => $this->sort,
         ]));
 
-        // CACHE HANYA MENYIMPAN ID LAPANGAN
+        // CACHE ID LAPANGAN
         $courtIds = Cache::remember($cacheKey, 60, function () {
 
             $query = Court::where('status', 'active');
@@ -65,11 +65,11 @@ class CourtList extends Component
             } elseif ($this->price === 'medium') {
 
                 $query->where('price_per_hour', '>', 100000)
-                    ->where('price_per_hour', '<=', 150000);
+                    ->where('price_per_hour', '<', 150000);
 
             } elseif ($this->price === 'high') {
 
-                $query->where('price_per_hour', '>', 150000);
+                $query->where('price_per_hour', '>=', 150000);
 
             }
 
@@ -100,7 +100,7 @@ class CourtList extends Component
             })
             ->values();
 
-        // CACHE DAFTAR KOTA DALAM BENTUK ARRAY
+        // CACHE DAFTAR KOTA
         $cities = Cache::remember('courts_active_cities', 60, function () {
 
             return Court::where('status', 'active')
