@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.js';
+@source '../**/*.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* MY TENNIS COLOR PALETTE */
+    --color-tennis-dark: #35432F;
+    --color-tennis-olive: #536B50;
+    --color-tennis-green: #687653;
+    --color-tennis-cream: #F5F4EC;
+    --color-tennis-light: #E8EDE3;
+
+    /* FLUX UI ACCENT */
+    --color-accent: #327C39;
+    --color-accent-content: #327C39;
+    --color-accent-foreground: #FFFFFF;
+}
+
+/* FLUX LABEL */
+[data-flux-label] {
+    color: #111827 !important;
+    font-weight: 600;
+}
+
+/* FLUX INPUT DAN SELECT */
+[data-flux-input] input,
+input[data-flux-input],
+select[data-flux-select],
+[data-flux-select] select {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    border: 1px solid #D1D5DB !important;
+}
+
+/* PLACEHOLDER */
+input::placeholder {
+    color: #9CA3AF !important;
+}
+
+/* SELECT OPTION */
+[data-flux-select] option {
+    background-color: #FFFFFF;
+    color: #111827;
+}
+
+/* FLUX BUTTON */
+button[data-flux-button] {
+    background-color: #327C39 !important;
+    color: #FFFFFF !important;
+    border-color: #327C39 !important;
+}
+
+/* BUTTON HOVER */
+button[data-flux-button]:hover {
+    background-color: #25632D !important;
+}
